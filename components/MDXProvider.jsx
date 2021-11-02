@@ -8,6 +8,7 @@ import Cover from './Cover';
 import SpeakerNotes from './SpeakerNotes';
 import Step from './Step';
 import Steps from './Steps';
+import Avatar from './Avatar';
 
 const mdComponents = {
   h1: (props) => <h1 {...props} />,
@@ -30,6 +31,7 @@ const mdComponents = {
   Step,
   Steps,
   motion,
+  Avatar,
 };
 
 export default ({ children }) => (
