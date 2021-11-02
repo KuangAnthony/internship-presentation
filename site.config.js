@@ -5,6 +5,6 @@ export const siteConfig = {
   author: {
     url: `https://twitter.com/whoisryosuke`,
   },
-}
+};
 
-export default siteConfig
+export default siteConfig;

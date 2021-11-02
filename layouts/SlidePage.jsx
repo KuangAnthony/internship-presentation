@@ -1,15 +1,15 @@
-import React, { useEffect } from "react";
-import { useRouter } from "next/router";
-import { createGlobalStyle } from "styled-components";
-import Slide from "../components/Slide";
-import PresentationMode from "../components/PresentationMode";
-import Swipeable from "../components/Swipeable";
-import useEventListener from "../hooks/useEventListener";
-import { useTotalPages } from "../context/TotalPagesContext";
-import { useMode } from "../context/ModeContext";
-import { useCurrentSlide } from "../context/CurrentSlideContext";
-import { Storage } from "../hooks/useStorage";
-import { MODES } from "../constants/modes";
+import React, { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { createGlobalStyle } from 'styled-components';
+import Slide from '../components/Slide';
+import PresentationMode from '../components/PresentationMode';
+import Swipeable from '../components/Swipeable';
+import useEventListener from '../hooks/useEventListener';
+import { useTotalPages } from '../context/TotalPagesContext';
+import { useMode } from '../context/ModeContext';
+import { useCurrentSlide } from '../context/CurrentSlideContext';
+import { Storage } from '../hooks/useStorage';
+import { MODES } from '../constants/modes';
 
 const GlobalStyle = createGlobalStyle`
   :root {
@@ -279,9 +279,7 @@ export default function SlidePage({ children, next }) {
         return setCurrentStep((prevStep) => prevStep + 1);
 
       // Otherwise go to next slide
-      setSlide((prevState) => {
-        return prevState + 1;
-      });
+      setSlide((prevState) => prevState + 1);
       clearSteps();
     } else if (keyCode === PREV) {
       // Do we have Steps inside the slide? Navigate those first
@@ -289,13 +287,14 @@ export default function SlidePage({ children, next }) {
         return setCurrentStep((prevStep) => prevStep - 1);
 
       // Otherwise go to prev slide
-      setSlide((prevState) => {
-        // router.push(
-        //   `${router.pathname}`,
-        //   `${router.pathname}?mode=${mode}#${prevState - 1}`
-        // );
-        return prevState - 1;
-      });
+      setSlide(
+        (prevState) =>
+          // router.push(
+          //   `${router.pathname}`,
+          //   `${router.pathname}?mode=${mode}#${prevState - 1}`
+          // );
+          prevState - 1
+      );
       clearSteps();
     }
   };
@@ -307,7 +306,7 @@ export default function SlidePage({ children, next }) {
     );
   }, [currentSlide, mode, router.pathname]);
 
-  useEventListener("keydown", navigate);
+  useEventListener('keydown', navigate);
 
   const swipeLeft = () => {
     navigate({ keyCode: NEXT[0] });
@@ -319,17 +318,17 @@ export default function SlidePage({ children, next }) {
 
   const slideNotes = () => {
     let generatorCount = 0;
-    let generatedNotes = [];
+    const generatedNotes = [];
     // Filter down children by only Slides
     React.Children.map(children, (child) => {
       // Check for <hr> element to separate slides
       const childType = child && child.props && (child.props.mdxType || []);
-      if (childType && childType.includes("hr")) {
+      if (childType && childType.includes('hr')) {
         generatorCount += 1;
         return;
       }
       // Check if it's a SpeakerNotes component
-      if (childType && childType.includes("SpeakerNotes")) {
+      if (childType && childType.includes('SpeakerNotes')) {
         if (!Array.isArray(generatedNotes[generatorCount])) {
           generatedNotes[generatorCount] = [];
         }
@@ -340,20 +339,20 @@ export default function SlidePage({ children, next }) {
   };
 
   const renderSlide = () => {
-    let generatedSlides = [];
+    const generatedSlides = [];
     let generatorCount = 0;
 
     // Filter down children by only Slides
     React.Children.map(children, (child) => {
       // Check for <hr> element to separate slides
       const childType = child && child.props && (child.props.mdxType || []);
-      if (childType && childType.includes("hr")) {
+      if (childType && childType.includes('hr')) {
         generatorCount += 1;
         return;
       }
 
       // Check if it's a SpeakerNotes component
-      if (childType && !childType.includes("SpeakerNotes")) {
+      if (childType && !childType.includes('SpeakerNotes')) {
         // Add slide content to current generated slide
         if (!Array.isArray(generatedSlides[generatorCount])) {
           generatedSlides[generatorCount] = [];
@@ -386,7 +385,7 @@ export default function SlidePage({ children, next }) {
         notes={slideNotes()}
         currentSlide={currentSlide}
       >
-        <div id="slide" style={{ width: "100%" }}>
+        <div id="slide" style={{ width: '100%' }}>
           {renderSlide()}
         </div>
       </PresentationMode>

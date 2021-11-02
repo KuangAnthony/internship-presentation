@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState } from 'react';
 
 export const CurrentSlideContext = createContext({
   currentSlide: 0,
@@ -9,7 +9,7 @@ export function CurrentSlideProvider({ children }) {
   // Grab initial slide from hash (#) in URL
   const initialSlide =
     process.browser && window.location.hash
-      ? parseInt(window.location.hash.replace("#", ""))
+      ? parseInt(window.location.hash.replace('#', ''))
       : 0;
   const [currentSlide, setSlide] = useState(initialSlide);
   const [currentStep, setCurrentStep] = useState(0);
@@ -28,7 +28,7 @@ export function CurrentSlideProvider({ children }) {
     setCurrentStep(0);
   };
 
-  console.log("rendering context", currentStep, steps);
+  console.log('rendering context', currentStep, steps);
   return (
     <CurrentSlideContext.Provider
       value={{

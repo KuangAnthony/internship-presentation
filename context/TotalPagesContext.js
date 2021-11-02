@@ -1,5 +1,5 @@
-import React from 'react'
+import React from 'react';
 
-export const TotalPagesContext = React.createContext(0)
+export const TotalPagesContext = React.createContext(0);
 
-export const useTotalPages = () => React.useContext(TotalPagesContext)
+export const useTotalPages = () => React.useContext(TotalPagesContext);

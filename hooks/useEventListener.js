@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect } from 'react';
 
 export default function useEventListener(eventName, handler, element) {
   const windowEl = process.browser ? window : null;

@@ -1,17 +1,17 @@
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
-import { useCurrentSlide } from "../context/CurrentSlideContext";
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import { useCurrentSlide } from '../context/CurrentSlideContext';
 
 const keys = {
-  slide: "next-mdx-deck-slide",
-  page: "next-mdx-deck-page",
+  slide: 'next-mdx-deck-slide',
+  page: 'next-mdx-deck-page',
 };
 
 export const useStorage = () => {
   const { currentSlide, setSlide } = useCurrentSlide();
   const router = useRouter();
   const currentPage =
-    router.query && "slide" in router.query && parseInt(router.query.slide, 10);
+    router.query && 'slide' in router.query && parseInt(router.query.slide, 10);
   const [focused, setFocused] = useState(false);
 
   /**
@@ -50,16 +50,16 @@ export const useStorage = () => {
 
   useEffect(() => {
     if (process.browser) {
-      if (!focused) window.addEventListener("storage", handleStorageChange);
-      window.addEventListener("focus", handleFocus);
-      window.addEventListener("blur", handleBlur);
+      if (!focused) window.addEventListener('storage', handleStorageChange);
+      window.addEventListener('focus', handleFocus);
+      window.addEventListener('blur', handleBlur);
     }
     return () => {
       if (process.browser) {
         if (!focused)
-          window.removeEventListener("storage", handleStorageChange);
-        window.removeEventListener("focus", handleFocus);
-        window.removeEventListener("blur", handleBlur);
+          window.removeEventListener('storage', handleStorageChange);
+        window.removeEventListener('focus', handleFocus);
+        window.removeEventListener('blur', handleBlur);
       }
     };
   }, [focused]);

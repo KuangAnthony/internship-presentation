@@ -1,16 +1,17 @@
-import { ThemeProvider } from "styled-components";
-import Head from "next/head";
-import { siteConfig } from "../site.config.js";
-import Header from "../components/Header";
-import MDXProvider from "../components/MDXProvider";
-import { AnimatePresence } from "framer-motion";
-import { CurrentSlideProvider } from "../context/CurrentSlideContext";
-import { ModeProvider } from "../context/ModeContext";
-import TransitionPage from "../layouts/TransitionPage";
+import { ThemeProvider } from 'styled-components';
+import Head from 'next/head';
+import { AnimatePresence } from 'framer-motion';
+import { siteConfig } from '../site.config.js';
+import Header from '../components/Header';
+import MDXProvider from '../components/MDXProvider';
+import { CurrentSlideProvider } from '../context/CurrentSlideContext';
+import { ModeProvider } from '../context/ModeContext';
+import TransitionPage from '../layouts/TransitionPage';
+import '../styles/global.css';
 
 const theme = {
   colors: {
-    primary: "#0070f3",
+    primary: '#0070f3',
   },
 };
 

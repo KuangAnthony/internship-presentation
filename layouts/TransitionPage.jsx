@@ -1,5 +1,5 @@
-import React from 'react'
-import { motion } from 'framer-motion'
+import React from 'react';
+import { motion } from 'framer-motion';
 
 export default function TransitionPage({ children }) {
   return (
@@ -10,5 +10,5 @@ export default function TransitionPage({ children }) {
     >
       {children}
     </motion.div>
-  )
+  );
 }
