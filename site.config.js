@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: `@KuangAnthony`,
-  title: `NextJS MDX Deck`,
-  date: `April 22, 2020`,
+  title: `High School SWE Internship Guide`,
+  date: `November 6, 2021`,
   author: {
     url: `https://twitter.com/KuangAnthony`,
   },
