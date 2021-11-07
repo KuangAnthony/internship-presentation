@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: `@KuangAnthony`,
   title: `High School SWE Internship Guide`,
-  date: `November 6, 2021`,
+  slug: `internship-presentation.vercel.app`,
   author: {
     url: `https://twitter.com/KuangAnthony`,
   },

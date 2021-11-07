@@ -37,7 +37,7 @@ export default function App({ Component, pageProps }) {
                   <Header
                     name={siteConfig.name}
                     title={siteConfig.title}
-                    date={siteConfig.date}
+                    slug={siteConfig.slug}
                     url={siteConfig.author.url}
                   />
                   <Component {...pageProps} />
